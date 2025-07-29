@@ -20,12 +20,18 @@
                 scale="-1 1 1">
       </a-entity>
 
+      
+
       <!-- Ground -->
       <a-entity geometry="primitive: plane; width: 100; height: 100"
-                material="src: https://cdn.aframe.io/a-painter/images/floor.jpg; repeat: 20 20; shader: standard"
+                material="src: Textures/grass.jpg; repeat: 20 20; shader: standard"
                 rotation="-90 0 0"
                 position="0 0 0">
       </a-entity>
+ 
+      <a-assets>
+         <a-asset-item id="house" src="/Model/House.glb"></a-asset-item>
+      </a-assets>
 
       <!-- Lighting -->
       <a-entity light="type: ambient; color: #ffffff; intensity: 0.5"></a-entity>
@@ -35,6 +41,10 @@
       </a-entity>
 
       <!-- Trees -->
+      <a-entity gltf-model="#house"
+                 scale="500 500 500" 
+                 position="50 50 50">
+      </a-entity>
       <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3"
                 material="color: #8B4513"
                 position="-3 2 0">
@@ -43,6 +53,11 @@
                 material="color: #228B22"
                 position="-3 5 0">
       </a-entity>
+
+     <a-entity gltf-model="url(Model/House.glb)"
+          scale="1 1 1"
+          position="0 0 0">
+     </a-entity>
 
       <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3"
                 material="color: #8B4513"
