@@ -13,8 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/aframe-physics-system@4.0.1/dist/aframe-physics-system.min.js"></script>  
   </head>
   <body>
-    <a-scene background="color: #87CEEB"> <!-- Sky blue background -->
-    <a-scene physics="gravity: -9.8" background="color: #87CEEB"></a-scene>
+   
+    <a-scene physics="gravity: -9.8" background="color: #87CEEB">
       <!-- Sky Dome -->
       <a-entity geometry="primitive: sphere; radius: 5000"
                 material="color: #87CEEB; side: back"
@@ -27,7 +27,8 @@
       <a-entity geometry="primitive: plane; width: 100; height: 100"
                 material="src: Textures/grass.jpg; repeat: 20 20; shader: standard"
                 rotation="-90 0 0"
-                position="0 0 0">
+                position="0 0 0"
+                static-body>
       </a-entity>
  
       <a-assets>
@@ -125,23 +126,32 @@
 
         <!-- Head (VR camera) -->
         
-<a-entity camera look-controls wasd-controls-enabled="false" position="0 1.6 0" 
-          super-hands="colliderEvent: raycaster-intersection; colliderEventProperty: els">
-  <a-entity cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
+ <a-entity camera
+            look-controls
+            wasd-controls-enabled="false"
+            position="0 1.6 0"
+            super-hands="colliderEvent: raycaster-intersection; colliderEventProperty: els">
+
+    <!-- Mouse-based cursor -->
+    <a-entity cursor="rayOrigin: mouse"
+              raycaster="objects: .clickable"></a-entity>
+  </a-entity>
+
+  <!-- Left Hand VR Controller -->
+  <a-entity laser-controls="hand: left"
+            raycaster="objects: .clickable"
+            super-hands
+            thumbstick-move>
+  </a-entity>
+
+  <!-- Right Hand VR Controller -->
+  <a-entity laser-controls="hand: right"
+            raycaster="objects: .clickable"
+            super-hands
+            thumbstick-move>
+  </a-entity>
+
 </a-entity>
-        <!-- Left hand controller -->
-        <a-entity laser-controls="hand: left"
-            thumbstick-move
-            raycaster="objects: .clickable">
-        </a-entity>
-
-        <!-- Right hand controller -->
-        <a-entity laser-controls="hand: right"
-            thumbstick-move
-            raycaster="objects: .clickable">
-        </a-entity>
-
-      </a-entity>
 
     </a-scene>
   </body>
