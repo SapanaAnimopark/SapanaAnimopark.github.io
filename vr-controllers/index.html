@@ -30,7 +30,7 @@
       </a-entity>
  
       <a-assets>
-         <a-asset-item id="house" src="/Model/House.glb"></a-asset-item>
+         <a-asset-item id="house" src="Model/House.glb"></a-asset-item>
       </a-assets>
 
       <!-- Lighting -->
@@ -42,7 +42,7 @@
 
       <!-- Trees -->
       <a-entity gltf-model="#house"
-                 scale="1 1  1" 
+                 scale="1 1 1" 
                  position="0 1.1 0">
       </a-entity>
       <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3"
@@ -54,11 +54,7 @@
                 position="-3 5 0">
       </a-entity>
 
-     <a-entity gltf-model="url(Model/House.glb)"
-          scale="1 1 1"
-          position="0 0 0">
-     </a-entity>
-
+     
       <a-entity geometry="primitive: cylinder; height: 4; radius: 0.3"
                 material="color: #8B4513"
                 position="5 2 -5">
